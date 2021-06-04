@@ -22,12 +22,16 @@
     "@semantic-release/exec": "^5.0.0",
     "@semantic-release/git": "^9.0.0",
     "git-cz": "^4.7.6",
-    "husky": "^5.2.0",
+    "husky": "^4.3.8",
     "semantic-release": "^17.4.3"
   },
   "husky": {
     "hooks": {
-      "prepare-commit-msg": "exec < /dev/tty && npx git-cz --hook || true"
+      "applypatch-msg": "echo \"[Husky] applypatch-msg\"",
+      "pre-applypatch": "echo \"[Husky] pre-applypatch\"",
+      "post-applypatch": "echo \"[Husky] post-applypatch\"",
+      "pre-commit": "echo \"[Husky] pre-commit\"",
+      "prepare-commit-msg": "exec < /dev/tty && git-cz --hook || true"
     }
   }
 }
