@@ -2,7 +2,9 @@
   "name": "semantic-release-poc",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "build": "echo build"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jlestes/semantic-release-poc.git"
@@ -23,6 +25,7 @@
     "@semantic-release/git": "^9.0.0",
     "git-cz": "^4.7.6",
     "husky": "^4.3.8",
+    "prettier": "^2.3.0",
     "semantic-release": "^17.4.3"
   },
   "husky": {
@@ -31,7 +34,8 @@
       "pre-applypatch": "echo \"[Husky] pre-applypatch\"",
       "post-applypatch": "echo \"[Husky] post-applypatch\"",
       "pre-commit": "echo \"[Husky] pre-commit\"",
-      "prepare-commit-msg": "exec < /dev/tty && git-cz --hook || true"
+      "prepare-commit-msg": "exec < /dev/tty && npx git-cz --hook || true",
+      "commit": "commitlint $HUSKY_GIT_PARAMS"
     }
   }
 }
